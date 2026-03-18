@@ -104,15 +104,15 @@ export function ParticlesCanvas() {
         if (particle.y < -18) particle.y = canvasHeight + 18;
         if (particle.y > canvasHeight + 18) particle.y = -18;
 
-        const tint = particle.hueShift < 0.5 ? "168, 85, 247" : "34, 211, 238";
-        context.fillStyle = `rgba(${tint}, 0.22)`;
+        const tint = particle.hueShift < 0.5 ? "200, 162, 200" : "231, 183, 164";
+        context.fillStyle = `rgba(${tint}, 0.18)`;
         context.beginPath();
         context.arc(particle.x, particle.y, 1.35, 0, Math.PI * 2);
         context.fill();
       }
 
       // Sparse lines to add depth without heavy gradients.
-      context.strokeStyle = "rgba(255,255,255,0.08)";
+      context.strokeStyle = "rgba(42,36,32,0.08)";
       context.lineWidth = 1;
       for (let i = 0; i < particles.length; i += 1) {
         const a = particles[i];

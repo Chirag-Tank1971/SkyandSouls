@@ -11,13 +11,13 @@ import { WhatsAppFloatingButton } from "@/components/site/WhatsAppFloatingButton
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#07070f]">
+    <div className="relative min-h-screen bg-background">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-2 opacity-70"
+        className="pointer-events-none absolute inset-0 z-2 opacity-90"
         style={{
           background:
-            "radial-gradient(1200px 600px at 50% 20%, rgba(168, 85, 247, 0.18), transparent 60%), radial-gradient(900px 520px at 80% 40%, rgba(34, 211, 238, 0.12), transparent 55%)",
+            "radial-gradient(1100px 620px at 50% 18%, rgba(200, 162, 200, 0.25), transparent 60%), radial-gradient(900px 520px at 85% 30%, rgba(231, 183, 164, 0.28), transparent 55%), radial-gradient(800px 520px at 25% 55%, rgba(212, 175, 55, 0.10), transparent 60%)",
         }}
       />
 

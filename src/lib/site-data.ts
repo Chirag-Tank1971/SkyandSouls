@@ -118,59 +118,59 @@ export type TeamMember = {
 export const mainOwners: TeamMember[] = [
   {
     id: "owner-aria",
-    name: "Aria Nayar",
-    title: "Co-Founder • Creative Director",
+    name: "Aakash Singh",
+    title: " Creative Director",
     specialty: "Concept worlds, styling language, and brand-level storytelling.",
-    imageSrc: "/team/owner-aria.svg",
+    imageSrc: "/team/aakashsingh.jpeg",
   },
   {
     id: "owner-kai",
-    name: "Kai Mehta",
-    title: "Co-Founder • Production Lead",
+    name: "Chirag Tank",
+    title: " Production Lead",
     specialty: "Logistics, timelines, vendor orchestration, and show-day control.",
-    imageSrc: "/team/owner-kai.svg",
+    imageSrc: "/team/chiragtank.jpg",
   },
   {
     id: "owner-noor",
-    name: "Noor Iqbal",
-    title: "Co-Founder • Hospitality & Ops",
+    name: "Naveen Singh",
+    title: " Hospitality & Ops",
     specialty: "Guest journeys, concierge service, and on-ground experience design.",
-    imageSrc: "/team/owner-noor.svg",
+    imageSrc: "/team/naveensingh.jpeg",
   },
 ];
 
 export const employees: TeamMember[] = [
   {
     id: "emp-mira",
-    name: "Mira Chen",
+    name: "Yuvraj Singh",
     title: "Senior Event Planner",
     specialty: "Planning systems, budgets, and vendor communications.",
     imageSrc: "/team/emp-mira.svg",
   },
   {
     id: "emp-zayn",
-    name: "Zayn Qureshi",
+    name: "Bharat Rathore",
     title: "Design Producer",
     specialty: "Stage, florals, lighting cues, and cohesive décor execution.",
     imageSrc: "/team/emp-zayn.svg",
   },
   {
     id: "emp-elena",
-    name: "Elena Rossi",
+    name: "Anshuman Singh",
     title: "Client Experience Manager",
     specialty: "Hospitality flow, guest support, and VIP coordination.",
     imageSrc: "/team/emp-elena.svg",
   },
   {
     id: "emp-adi",
-    name: "Adi Krishnan",
+    name: "Akshay Verma",
     title: "Logistics Coordinator",
     specialty: "Run-of-show, movement plans, and contingency readiness.",
     imageSrc: "/team/emp-adi.svg",
   },
   {
     id: "emp-sana",
-    name: "Sana Patel",
+    name: "Siddharth Verma",
     title: "Content & Moments",
     specialty: "Capture planning, shot lists, and creator/vendor alignment.",
     imageSrc: "/team/emp-sana.svg",
@@ -217,9 +217,9 @@ export type ExperienceStat = {
 };
 
 export const experienceStats: ExperienceStat[] = [
-  { label: "Events delivered", value: 240, suffix: "+" },
-  { label: "Cities activated", value: 48, suffix: "+" },
-  { label: "Five-star vendor partners", value: 130, suffix: "+" },
+  { label: "Events delivered", value: 25, suffix: "+" },
+  { label: "Cities activated", value: 10, suffix: "+" },
+  { label: "Five-star vendor partners", value: 50, suffix: "+" },
   { label: "Average client satisfaction", value: 98, suffix: "%" },
 ];
 

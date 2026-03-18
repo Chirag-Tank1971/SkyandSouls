@@ -21,10 +21,10 @@ export function WhatsAppFloatingButton({
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
-      className="group fixed bottom-5 right-5 z-[60] inline-flex items-center gap-3 rounded-full border border-white/10 bg-black/40 px-4 py-3 text-white shadow-[0_24px_80px_rgba(0,0,0,0.55)] backdrop-blur-xl transition hover:border-white/20 hover:bg-black/55"
+      className="group fixed bottom-5 right-5 z-60 inline-flex items-center gap-3 rounded-full border border-border/60 bg-background/75 px-4 py-3 text-foreground shadow-[0_24px_80px_rgba(36,24,18,0.14)] backdrop-blur-xl transition hover:bg-background"
     >
-      <span className="grid size-10 place-items-center rounded-full bg-emerald-500/15 ring-1 ring-emerald-400/25 transition group-hover:bg-emerald-500/20">
-        <FaWhatsapp className="text-emerald-300" size={20} />
+      <span className="grid size-10 place-items-center rounded-full bg-emerald-500/12 ring-1 ring-emerald-600/25 transition group-hover:bg-emerald-500/16">
+        <FaWhatsapp className="text-emerald-700" size={20} />
       </span>
       <span className="hidden text-sm font-medium tracking-wide sm:inline">
         WhatsApp

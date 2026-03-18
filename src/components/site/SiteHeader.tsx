@@ -19,20 +19,20 @@ export function SiteHeader() {
         initial={{ y: -18, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="mx-auto mt-4 w-[min(1200px,calc(100%-2rem))] rounded-2xl border border-white/10 bg-black/30 px-4 py-3 backdrop-blur-xl"
+        className="mx-auto mt-4 w-[min(1200px,calc(100%-2rem))] rounded-2xl border border-border/60 bg-background/60 px-4 py-3 backdrop-blur-xl"
       >
         <div className="flex items-center justify-between gap-4">
           <a href="#top" className="group inline-flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-xl bg-white/5 ring-1 ring-white/10 transition group-hover:bg-white/8">
+            <span className="grid size-10 place-items-center rounded-xl bg-foreground/5 ring-1 ring-border/60 transition group-hover:bg-foreground/7">
               <span className="font-display text-gradient text-lg font-semibold">
                 S
               </span>
             </span>
             <div className="leading-tight">
-              <div className="font-display text-base font-semibold tracking-wide text-white">
+              <div className="font-display text-base font-semibold tracking-wide text-foreground">
                 SkyAndSouls
               </div>
-              <div className="text-xs text-white/55">Luxury Event Studio</div>
+              <div className="text-xs text-foreground/55">Wedding Event Studio</div>
             </div>
           </a>
 
@@ -41,7 +41,7 @@ export function SiteHeader() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium tracking-wide text-white/70 transition hover:text-white"
+                className="text-sm font-medium tracking-wide text-foreground/70 transition hover:text-foreground"
               >
                 {item.label}
               </a>
@@ -52,13 +52,13 @@ export function SiteHeader() {
             <a href="#contact" className="hidden sm:block">
               <Button
                 variant="secondary"
-                className="rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10"
+                className="rounded-full border border-border/60 bg-background/60 text-foreground hover:bg-background/80"
               >
                 Book Consultation
               </Button>
             </a>
             <a href="#portfolio">
-              <Button className="rounded-full bg-white text-black hover:bg-white/90">
+              <Button className="rounded-full bg-foreground text-background hover:bg-foreground/90">
                 View Work
               </Button>
             </a>

@@ -16,8 +16,6 @@ const categories: PortfolioCategory[] = [
   "All",
   "Weddings",
   "Corporate",
-  "Private",
-  "Destination",
 ];
 
 export function PortfolioSection() {
@@ -25,25 +23,27 @@ export function PortfolioSection() {
 
   const visibleItems = useMemo(() => {
     if (activeCategory === "All") {
-      return portfolioItems;
+      return portfolioItems.filter(
+        (item) => item.category === "Weddings" || item.category === "Corporate",
+      );
     }
     return portfolioItems.filter((item) => item.category === activeCategory);
   }, [activeCategory]);
 
   return (
-    <section id="portfolio" className="relative z-10 py-24 sm:py-28">
+    <section id="portfolio" className="cv-auto relative z-10 py-24 sm:py-28">
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <Badge className="rounded-full border-white/10 bg-white/5 text-white/80 hover:bg-white/5">
+            <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
               Portfolio
             </Badge>
-            <h2 className="font-display mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h2 className="font-display mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
               A gallery of{" "}
               <span className="text-gradient">moments</span>.
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-7 text-white/60 sm:text-base">
+          <p className="max-w-xl text-sm leading-7 text-foreground/60 sm:text-base">
             Hover to feel the mood. Filter to explore by celebration type.
           </p>
         </div>
@@ -58,7 +58,7 @@ export function PortfolioSection() {
                 <TabsTrigger
                   key={category}
                   value={category}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 data-[state=active]:border-white/15 data-[state=active]:bg-white/10 data-[state=active]:text-white"
+                  className="rounded-full border border-border/60 bg-background/60 px-4 py-2 text-sm text-foreground/70 data-[state=active]:border-border data-[state=active]:bg-background/85 data-[state=active]:text-foreground"
                 >
                   {category}
                 </TabsTrigger>
@@ -80,7 +80,7 @@ export function PortfolioSection() {
                 ease: [0.16, 1, 0.3, 1],
                 delay: Math.min(0.25, index * 0.04),
               }}
-              className="group glass glow-ring relative overflow-hidden rounded-3xl"
+              className="group glass-lite glow-ring relative overflow-hidden rounded-3xl"
               data-gsap="reveal"
             >
               <div className="relative aspect-4/5 w-full overflow-hidden">
@@ -92,13 +92,13 @@ export function PortfolioSection() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
+                <div className="absolute inset-0 bg-linear-to-t from-background/85 via-background/10 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
               </div>
               <div className="absolute inset-x-0 bottom-0 p-5">
-                <div className="text-sm font-semibold tracking-wide text-white">
+                <div className="text-sm font-semibold tracking-wide text-foreground">
                   {item.title}
                 </div>
-                <div className="mt-1 text-xs text-white/60">
+                <div className="mt-1 text-xs text-foreground/60">
                   {item.category} • {item.location}
                 </div>
               </div>
@@ -107,7 +107,7 @@ export function PortfolioSection() {
                 className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{
                   background:
-                    "radial-gradient(420px 320px at 20% 20%, rgba(168, 85, 247, 0.18), transparent 60%), radial-gradient(420px 320px at 80% 10%, rgba(34, 211, 238, 0.14), transparent 60%)",
+                    "radial-gradient(420px 320px at 20% 20%, rgba(200, 162, 200, 0.18), transparent 60%), radial-gradient(420px 320px at 80% 10%, rgba(231, 183, 164, 0.16), transparent 60%)",
                 }}
               />
             </motion.div>
@@ -117,15 +117,15 @@ export function PortfolioSection() {
         <div className="mt-16" data-gsap="reveal">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <Badge className="rounded-full border-white/10 bg-white/5 text-white/80 hover:bg-white/5">
+              <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
                 Main owners
               </Badge>
-              <h3 className="font-display mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              <h3 className="font-display mt-4 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
                 The founders behind the{" "}
                 <span className="text-gradient">craft</span>.
               </h3>
             </div>
-            <p className="max-w-xl text-sm leading-7 text-white/60 sm:text-base">
+            <p className="max-w-xl text-sm leading-7 text-foreground/60 sm:text-base">
               Three specialists—creative, production, and hospitality—working as
               one studio.
             </p>
@@ -144,10 +144,10 @@ export function PortfolioSection() {
                   delay: index * 0.06,
                 }}
                 whileHover={{ y: -6 }}
-                className="glass glow-ring group overflow-hidden rounded-3xl p-5"
+                className="glass-lite glow-ring group overflow-hidden rounded-3xl p-5"
               >
                 <div className="flex items-center gap-4">
-                  <div className="relative size-16 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+                  <div className="relative size-16 overflow-hidden rounded-2xl border border-border/60 bg-background/60">
                     <Image
                       src={owner.imageSrc}
                       alt={owner.name}
@@ -158,17 +158,17 @@ export function PortfolioSection() {
                     />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-white">
+                    <div className="text-sm font-semibold text-foreground">
                       {owner.name}
                     </div>
-                    <div className="mt-1 text-xs text-white/55">{owner.title}</div>
+                    <div className="mt-1 text-xs text-foreground/55">{owner.title}</div>
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-7 text-white/65">
+                <p className="mt-4 text-sm leading-7 text-foreground/65">
                   {owner.specialty}
                 </p>
-                <div className="mt-6 h-px w-full bg-linear-to-r from-purple-400/30 via-white/10 to-cyan-300/25" />
-                <div className="mt-4 text-xs text-white/55">
+                <div className="mt-6 h-px w-full bg-linear-to-r from-[#c8a2c8]/35 via-foreground/8 to-[#e7b7a4]/28" />
+                <div className="mt-4 text-xs text-foreground/55">
                   Available worldwide • Studio-led delivery
                 </div>
               </motion.div>
@@ -179,15 +179,15 @@ export function PortfolioSection() {
         <div className="mt-16" data-gsap="reveal">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <Badge className="rounded-full border-white/10 bg-white/5 text-white/80 hover:bg-white/5">
+              <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
                 Team
               </Badge>
-              <h3 className="font-display mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              <h3 className="font-display mt-4 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
                 Our team, one{" "}
                 <span className="text-gradient">standard</span>.
               </h3>
             </div>
-            <p className="max-w-xl text-sm leading-7 text-white/60 sm:text-base">
+            <p className="max-w-xl text-sm leading-7 text-foreground/60 sm:text-base">
               The crew that turns concepts into a seamless, guest-first reality.
             </p>
           </div>
@@ -205,9 +205,9 @@ export function PortfolioSection() {
                   delay: Math.min(0.25, index * 0.04),
                 }}
                 whileHover={{ y: -6 }}
-                className="glass glow-ring group overflow-hidden rounded-3xl p-5"
+                className="glass-lite glow-ring group overflow-hidden rounded-3xl p-5"
               >
-                <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+                <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border/60 bg-background/60">
                   <Image
                     src={member.imageSrc}
                     alt={member.name}
@@ -217,11 +217,11 @@ export function PortfolioSection() {
                     loading="lazy"
                   />
                 </div>
-                <div className="mt-4 text-sm font-semibold text-white">
+                <div className="mt-4 text-sm font-semibold text-foreground">
                   {member.name}
                 </div>
-                <div className="mt-1 text-xs text-white/55">{member.title}</div>
-                <p className="mt-3 text-sm leading-7 text-white/60">
+                <div className="mt-1 text-xs text-foreground/55">{member.title}</div>
+                <p className="mt-3 text-sm leading-7 text-foreground/60">
                   {member.specialty}
                 </p>
               </motion.div>

@@ -7,19 +7,19 @@ import { AnimatedCounter } from "@/components/shared/AnimatedCounter";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="relative z-10 py-24 sm:py-28">
+    <section id="experience" className="cv-auto relative z-10 py-24 sm:py-28">
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <Badge className="rounded-full border-white/10 bg-white/5 text-white/80 hover:bg-white/5">
+            <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
               Experience
             </Badge>
-            <h2 className="font-display mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h2 className="font-display mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
               Proof in the{" "}
               <span className="text-gradient">details</span>.
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-7 text-white/60 sm:text-base">
+          <p className="max-w-xl text-sm leading-7 text-foreground/60 sm:text-base">
             Numbers don’t create emotion—but they do reveal consistency. Here’s
             what we’ve delivered, repeatedly.
           </p>
@@ -40,12 +40,12 @@ export function ExperienceSection() {
               className="glass glow-ring rounded-3xl p-6"
               data-gsap="reveal"
             >
-              <div className="font-display text-4xl font-semibold tracking-tight text-white">
+              <div className="font-display text-4xl font-semibold tracking-tight text-foreground">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="mt-3 text-sm text-white/60">{stat.label}</div>
-              <div className="mt-6 h-px w-full bg-gradient-to-r from-purple-400/35 via-white/10 to-cyan-300/25" />
-              <div className="mt-4 text-sm leading-7 text-white/55">
+              <div className="mt-3 text-sm text-foreground/60">{stat.label}</div>
+              <div className="mt-6 h-px w-full bg-linear-to-r from-[#c8a2c8]/35 via-foreground/8 to-[#e7b7a4]/25" />
+              <div className="mt-4 text-sm leading-7 text-foreground/55">
                 Measured across seasons, venues, and production scales.
               </div>
             </motion.div>

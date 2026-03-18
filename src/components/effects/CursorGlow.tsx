@@ -46,10 +46,10 @@ export function CursorGlow() {
     <div
       ref={overlayRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-5 opacity-60 mix-blend-screen will-change-[background]"
+      className="pointer-events-none fixed inset-0 z-50 opacity-70 mix-blend-multiply will-change-[background]"
       style={{
         background:
-          "radial-gradient(480px 480px at var(--x, 50%) var(--y, 50%), rgba(168, 85, 247, 0.22), transparent 55%), radial-gradient(520px 520px at calc(var(--x, 50%) + 180px) calc(var(--y, 50%) - 120px), rgba(34, 211, 238, 0.18), transparent 60%)",
+          "radial-gradient(540px 540px at var(--x, 50%) var(--y, 50%), rgba(200, 162, 200, 0.26), transparent 58%), radial-gradient(560px 560px at calc(var(--x, 50%) + 180px) calc(var(--y, 50%) - 120px), rgba(231, 183, 164, 0.22), transparent 62%), radial-gradient(620px 620px at calc(var(--x, 50%) - 220px) calc(var(--y, 50%) + 160px), rgba(212, 175, 55, 0.12), transparent 62%)",
       }}
     />
   );

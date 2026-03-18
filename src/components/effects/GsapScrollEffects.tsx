@@ -25,26 +25,26 @@ export function GsapScrollEffects() {
       document.querySelectorAll<HTMLElement>("[data-gsap='reveal']"),
     );
 
-    const animations = sections.map((element) => {
-      const delay = Number(element.dataset.delay ?? "0");
-      return gsap.fromTo(
-        element,
-        { autoAlpha: 0, y: 26, filter: "blur(6px)" },
-        {
-          autoAlpha: 1,
-          y: 0,
-          filter: "blur(0px)",
-          duration: 0.9,
-          ease: "power3.out",
-          delay,
-          scrollTrigger: {
-            trigger: element,
-            start: "top 78%",
-            end: "bottom 65%",
-            toggleActions: "play none none reverse",
+    // Best practice: animate only transform + opacity (avoid filter/blur).
+    // Batch reduces the number of individual ScrollTriggers → smoother scroll on mid-range CPUs.
+    const batchTriggers = ScrollTrigger.batch(sections, {
+      start: "top 82%",
+      once: true,
+      onEnter: (batchElements) => {
+        gsap.fromTo(
+          batchElements,
+          { autoAlpha: 0, y: 22, scale: 0.985 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.75,
+            ease: "power3.out",
+            stagger: 0.05,
+            force3D: true,
           },
-        },
-      );
+        );
+      },
     });
 
     const parallaxElements = Array.from(
@@ -73,9 +73,9 @@ export function GsapScrollEffects() {
     ScrollTrigger.refresh();
 
     return () => {
-      for (const animation of animations) {
-        animation.scrollTrigger?.kill();
-        animation.kill();
+      // `ScrollTrigger.batch` returns an array of ScrollTriggers.
+      for (const trigger of batchTriggers) {
+        trigger.kill(true);
       }
       for (const animation of parallaxAnimations) {
         animation.scrollTrigger?.kill();

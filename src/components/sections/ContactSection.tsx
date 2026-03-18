@@ -53,48 +53,48 @@ export function ContactSection() {
   }, [formState]);
 
   return (
-    <section id="contact" className="relative z-10 py-24 sm:py-28">
+    <section id="contact" className="cv-auto relative z-10 py-24 sm:py-28">
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div>
-            <Badge className="rounded-full border-white/10 bg-white/5 text-white/80 hover:bg-white/5">
+            <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
               Contact / Booking
             </Badge>
-            <h2 className="font-display mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h2 className="font-display mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
               Let’s design your{" "}
               <span className="text-gradient">signature</span> moment.
             </h2>
-            <p className="mt-5 max-w-xl text-sm leading-7 text-white/60 sm:text-base sm:leading-8">
+            <p className="mt-5 max-w-xl text-sm leading-7 text-foreground/60 sm:text-base sm:leading-8">
               Share a few details and we’ll respond with a curated discovery call.
               Prefer email? One click generates a polished booking message.
             </p>
 
             <div className="mt-10 glass glow-ring rounded-3xl p-6" data-gsap="reveal">
-              <div className="text-sm font-semibold text-white">FAQs</div>
+              <div className="text-sm font-semibold text-foreground">FAQs</div>
               <Accordion type="single" collapsible className="mt-4">
-                <AccordionItem value="item-1" className="border-white/10">
-                  <AccordionTrigger className="text-left text-sm text-white/75 hover:text-white">
+                <AccordionItem value="item-1" className="border-border/60">
+                  <AccordionTrigger className="text-left text-sm text-foreground/75 hover:text-foreground">
                     How far in advance should we book?
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm leading-7 text-white/60">
+                  <AccordionContent className="text-sm leading-7 text-foreground/60">
                     Ideally 3–8 months for weddings and 4–12 weeks for corporate
                     experiences. If you have a tight timeline, we’ll adapt.
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="item-2" className="border-white/10">
-                  <AccordionTrigger className="text-left text-sm text-white/75 hover:text-white">
+                <AccordionItem value="item-2" className="border-border/60">
+                  <AccordionTrigger className="text-left text-sm text-foreground/75 hover:text-foreground">
                     Do you handle destination events?
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm leading-7 text-white/60">
+                  <AccordionContent className="text-sm leading-7 text-foreground/60">
                     Yes. We manage travel coordination, local sourcing, vendor
                     partnerships, and a dedicated on-site team.
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="item-3" className="border-white/10">
-                  <AccordionTrigger className="text-left text-sm text-white/75 hover:text-white">
+                <AccordionItem value="item-3" className="border-border/60">
+                  <AccordionTrigger className="text-left text-sm text-foreground/75 hover:text-foreground">
                     What’s included in your planning?
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm leading-7 text-white/60">
+                  <AccordionContent className="text-sm leading-7 text-foreground/60">
                     Creative direction, budget strategy, vendor orchestration,
                     timelines, guest experience design, and show-day execution.
                   </AccordionContent>
@@ -121,7 +121,7 @@ export function ContactSection() {
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <Label className="text-white/70" htmlFor="fullName">
+                  <Label className="text-foreground/70" htmlFor="fullName">
                     Full name
                   </Label>
                   <Input
@@ -134,12 +134,12 @@ export function ContactSection() {
                       }))
                     }
                     placeholder="Your name"
-                    className="h-11 border-white/10 bg-white/5 text-white placeholder:text-white/40"
+                    className="h-11 border-border/60 bg-background/70 text-foreground placeholder:text-foreground/40"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-white/70" htmlFor="email">
+                  <Label className="text-foreground/70" htmlFor="email">
                     Email
                   </Label>
                   <Input
@@ -153,12 +153,12 @@ export function ContactSection() {
                       }))
                     }
                     placeholder="you@domain.com"
-                    className="h-11 border-white/10 bg-white/5 text-white placeholder:text-white/40"
+                    className="h-11 border-border/60 bg-background/70 text-foreground placeholder:text-foreground/40"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-white/70" htmlFor="phone">
+                  <Label className="text-foreground/70" htmlFor="phone">
                     Phone (optional)
                   </Label>
                   <Input
@@ -171,11 +171,11 @@ export function ContactSection() {
                       }))
                     }
                     placeholder="+91 98765 43210"
-                    className="h-11 border-white/10 bg-white/5 text-white placeholder:text-white/40"
+                    className="h-11 border-border/60 bg-background/70 text-foreground placeholder:text-foreground/40"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-white/70" htmlFor="eventType">
+                  <Label className="text-foreground/70" htmlFor="eventType">
                     Event type
                   </Label>
                   <Input
@@ -188,12 +188,12 @@ export function ContactSection() {
                       }))
                     }
                     placeholder="Wedding"
-                    className="h-11 border-white/10 bg-white/5 text-white placeholder:text-white/40"
+                    className="h-11 border-border/60 bg-background/70 text-foreground placeholder:text-foreground/40"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-white/70" htmlFor="city">
+                  <Label className="text-foreground/70" htmlFor="city">
                     City
                   </Label>
                   <Input
@@ -206,12 +206,12 @@ export function ContactSection() {
                       }))
                     }
                     placeholder="Where is your event?"
-                    className="h-11 border-white/10 bg-white/5 text-white placeholder:text-white/40"
+                    className="h-11 border-border/60 bg-background/70 text-foreground placeholder:text-foreground/40"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-white/70" htmlFor="date">
+                  <Label className="text-foreground/70" htmlFor="date">
                     Date (optional)
                   </Label>
                   <Input
@@ -224,13 +224,13 @@ export function ContactSection() {
                       }))
                     }
                     placeholder="Month / Year"
-                    className="h-11 border-white/10 bg-white/5 text-white placeholder:text-white/40"
+                    className="h-11 border-border/60 bg-background/70 text-foreground placeholder:text-foreground/40"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label className="text-white/70" htmlFor="message">
+                <Label className="text-foreground/70" htmlFor="message">
                   Message
                 </Label>
                 <Textarea
@@ -243,7 +243,7 @@ export function ContactSection() {
                     }))
                   }
                   placeholder="Tell us the vibe, guest count, and what matters most."
-                  className="min-h-28 border-white/10 bg-white/5 text-white placeholder:text-white/40"
+                  className="min-h-28 border-border/60 bg-background/70 text-foreground placeholder:text-foreground/40"
                 />
               </div>
 
@@ -251,7 +251,7 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   disabled={submissionState === "submitting"}
-                  className="h-12 flex-1 rounded-full bg-white text-black hover:bg-white/90"
+                  className="h-12 flex-1 rounded-full bg-foreground text-background hover:bg-foreground/92"
                 >
                   {submissionState === "submitted" ? "Request sent" : "Request booking"}
                 </Button>
@@ -259,7 +259,7 @@ export function ContactSection() {
                   <Button
                     type="button"
                     variant="secondary"
-                    className="h-12 w-full rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10"
+                    className="h-12 w-full rounded-full border border-border/60 bg-background/60 text-foreground hover:bg-background/80"
                   >
                     Email this inquiry
                   </Button>
@@ -267,7 +267,7 @@ export function ContactSection() {
               </div>
 
               {submissionState === "submitted" ? (
-                <div className="rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-4 text-sm text-emerald-200">
+                <div className="rounded-2xl border border-emerald-600/20 bg-emerald-500/10 p-4 text-sm text-emerald-800">
                   Perfect—your request is ready. For a real backend submission, wire
                   this form to an API route or your CRM.
                 </div>

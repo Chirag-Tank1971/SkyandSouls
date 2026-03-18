@@ -28,21 +28,21 @@ export function HeroSection() {
           className="max-w-3xl"
         >
           <div className="flex flex-wrap items-center gap-2">
-            <Badge className="rounded-full border-white/10 bg-white/5 text-white/80 hover:bg-white/5">
-              Premium event management
+            <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
+              Premium wedding events
             </Badge>
-            <Badge className="rounded-full border-white/10 bg-white/5 text-white/80 hover:bg-white/5">
+            <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
               Weddings • Corporate • Private • Destination
             </Badge>
           </div>
 
-          <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
             Curate moments.
             <br />
             <span className="text-gradient">Command emotion.</span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-foreground/65 sm:text-lg sm:leading-8">
             SkyAndSouls designs luxury celebrations with cinematic storytelling
             and meticulous production—so your guests feel the atmosphere before
             they understand it.
@@ -50,14 +50,14 @@ export function HeroSection() {
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a href="#contact">
-              <Button className="h-12 rounded-full bg-white px-6 text-black hover:bg-white/90">
+              <Button className="h-12 rounded-full bg-foreground px-6 text-background hover:bg-foreground/92">
                 Book a consultation <ArrowRight className="ml-2 size-4" />
               </Button>
             </a>
             <a href="#portfolio">
               <Button
                 variant="secondary"
-                className="h-12 rounded-full border border-white/10 bg-white/5 px-6 text-white hover:bg-white/10"
+                className="h-12 rounded-full border border-border/60 bg-background/60 px-6 text-foreground hover:bg-background/80"
               >
                 Explore portfolio <Sparkles className="ml-2 size-4" />
               </Button>
@@ -82,12 +82,12 @@ export function HeroSection() {
           ].map((item) => (
             <div
               key={item.title}
-              className="glass glow-ring rounded-3xl p-6 transition hover:translate-y-[-2px] hover:border-white/15"
+              className="glass glow-ring rounded-3xl p-6 transition hover:translate-y-[-2px]"
             >
-              <div className="text-sm font-semibold tracking-wide text-white">
+              <div className="text-sm font-semibold tracking-wide text-foreground">
                 {item.title}
               </div>
-              <div className="mt-2 text-sm leading-7 text-white/60">
+              <div className="mt-2 text-sm leading-7 text-foreground/60">
                 {item.description}
               </div>
             </div>
@@ -98,7 +98,7 @@ export function HeroSection() {
           aria-hidden="true"
           data-gsap="parallax"
           data-strength="90"
-          className="pointer-events-none absolute right-[-160px] top-[160px] hidden h-[420px] w-[420px] rounded-full bg-linear-to-br from-purple-500/25 via-purple-500/10 to-cyan-300/10 blur-2xl lg:block"
+          className="pointer-events-none absolute right-[-160px] top-[160px] hidden h-[420px] w-[420px] rounded-full bg-linear-to-br from-[#c8a2c8]/35 via-[#e7b7a4]/18 to-[#d4af37]/14 blur-2xl lg:block"
         />
       </div>
     </section>

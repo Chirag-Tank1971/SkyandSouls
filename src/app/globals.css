@@ -48,38 +48,39 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  /* Cream wedding palette */
+  --background: oklch(0.97 0.02 80);
+  --foreground: oklch(0.22 0.02 55);
+  --card: oklch(0.985 0.015 85);
+  --card-foreground: oklch(0.22 0.02 55);
+  --popover: oklch(0.99 0.01 85);
+  --popover-foreground: oklch(0.22 0.02 55);
+  --primary: oklch(0.28 0.03 50);
+  --primary-foreground: oklch(0.98 0.015 85);
+  --secondary: oklch(0.95 0.02 85);
+  --secondary-foreground: oklch(0.28 0.03 50);
+  --muted: oklch(0.95 0.015 80);
+  --muted-foreground: oklch(0.45 0.02 55);
+  --accent: oklch(0.95 0.02 85);
+  --accent-foreground: oklch(0.28 0.03 50);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.86 0.02 80);
+  --input: oklch(0.86 0.02 80);
+  --ring: oklch(0.58 0.05 15);
   --chart-1: oklch(0.809 0.105 251.813);
   --chart-2: oklch(0.623 0.214 259.815);
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: oklch(0.985 0.015 85);
+  --sidebar-foreground: oklch(0.22 0.02 55);
+  --sidebar-primary: oklch(0.28 0.03 50);
+  --sidebar-primary-foreground: oklch(0.98 0.015 85);
+  --sidebar-accent: oklch(0.95 0.02 85);
+  --sidebar-accent-foreground: oklch(0.28 0.03 50);
+  --sidebar-border: oklch(0.86 0.02 80);
+  --sidebar-ring: oklch(0.58 0.05 15);
 }
 
 .dark {
@@ -136,7 +137,7 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(90deg, #a855f7, #22d3ee);
+    background: linear-gradient(90deg, #c8a2c8, #e7b7a4);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -144,23 +145,43 @@
 
   .bg-hero-gradient {
     background:
-      radial-gradient(1000px 600px at 10% 10%, rgba(168, 85, 247, 0.28), transparent 60%),
-      radial-gradient(900px 500px at 85% 25%, rgba(34, 211, 238, 0.22), transparent 55%),
-      radial-gradient(700px 450px at 65% 85%, rgba(168, 85, 247, 0.12), transparent 60%),
-      linear-gradient(180deg, rgba(10, 10, 14, 1), rgba(8, 8, 12, 1));
+      radial-gradient(1100px 650px at 10% 5%, rgba(200, 162, 200, 0.26), transparent 60%),
+      radial-gradient(900px 520px at 90% 15%, rgba(231, 183, 164, 0.30), transparent 55%),
+      radial-gradient(820px 520px at 55% 85%, rgba(212, 175, 55, 0.12), transparent 60%),
+      linear-gradient(180deg, rgba(250, 246, 239, 1), rgba(255, 253, 248, 1));
   }
 
   .glass {
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.10),
-      rgba(255, 255, 255, 0.04)
+      rgba(255, 255, 255, 0.72),
+      rgba(255, 255, 255, 0.52)
     );
-    border: 1px solid rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(42, 36, 32, 0.10);
     box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.30) inset,
-      0 24px 80px rgba(0, 0, 0, 0.50);
-    backdrop-filter: blur(16px);
+      0 0 0 1px rgba(255, 255, 255, 0.60) inset,
+      0 24px 80px rgba(36, 24, 18, 0.14);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Lighter alternative for dense grids (no backdrop-filter). */
+  .glass-lite {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.72),
+      rgba(255, 255, 255, 0.52)
+    );
+    border: 1px solid rgba(42, 36, 32, 0.10);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.60) inset,
+      0 24px 80px rgba(36, 24, 18, 0.14);
+  }
+
+  /* Disable expensive backdrop blur on mobile + reduced-motion contexts. */
+  @media (max-width: 768px), (prefers-reduced-motion: reduce) {
+    .glass {
+      backdrop-filter: none;
+    }
   }
 
   .glow-ring {
@@ -172,16 +193,27 @@
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(120deg, rgba(168, 85, 247, 0.7), rgba(34, 211, 238, 0.6));
+    background: linear-gradient(
+      120deg,
+      rgba(200, 162, 200, 0.65),
+      rgba(231, 183, 164, 0.55),
+      rgba(212, 175, 55, 0.35)
+    );
     mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
     mask-composite: exclude;
-    opacity: 0.65;
+    opacity: 0.55;
     pointer-events: none;
   }
 
   .font-display {
     font-family: var(--font-display);
+  }
+
+  /* Skip layout/paint for offscreen sections (major scroll win). */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 900px;
   }
 }
