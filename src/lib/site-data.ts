@@ -1,4 +1,4 @@
-export type ServiceKey = "wedding" | "corporate" | "private" | "destination";
+export type ServiceKey = "wedding" | "corporate";
 
 export type Service = {
   key: ServiceKey;
@@ -21,20 +21,6 @@ export const services: Service[] = [
     description:
       "Brand-forward experiences that feel effortless—product launches, conferences, and executive retreats.",
     highlights: ["Run-of-show design", "Stage & AV", "Guest experience"],
-  },
-  {
-    key: "private",
-    title: "Private",
-    description:
-      "Milestones that feel intimate yet iconic—birthdays, anniversaries, and at-home transformations.",
-    highlights: ["Luxury décor", "Bespoke menus", "Atmosphere engineering"],
-  },
-  {
-    key: "destination",
-    title: "Destination",
-    description:
-      "Worldwide celebrations with concierge-level logistics—every detail handled, every moment elevated.",
-    highlights: ["Travel coordination", "Local sourcing", "On-site team"],
   },
 ];
 
@@ -188,7 +174,7 @@ export const testimonials: Testimonial[] = [
     name: "Ananya Kapoor",
     role: "Bride",
     quote:
-      "SkyAndSouls turned our vision into a cinematic experience. Every detail felt intentional—and effortless.",
+      "SkyAndSoul turned our vision into a cinematic experience. Every detail felt intentional—and effortless.",
   },
   {
     name: "Marcus Lee",

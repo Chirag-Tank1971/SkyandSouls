@@ -23,7 +23,7 @@ export function AboutSection() {
               <span className="text-gradient">atmosphere</span>—not just events.
             </h2>
             <p className="mt-5 max-w-xl text-sm leading-7 text-foreground/65 sm:text-base sm:leading-8">
-              SkyAndSouls was built on a simple belief: luxury is not loud—it’s
+              SkyAndSoul was built on a simple belief: luxury is not loud—it’s
               precise. We blend design direction, production discipline, and
               hospitality intuition to craft experiences that feel effortless,
               immersive, and unforgettable.
@@ -74,7 +74,7 @@ export function AboutSection() {
               <div className="relative aspect-16/11 w-full overflow-hidden rounded-2xl">
                 <Image
                   src="/portfolio/city-palace-udaipur-wedding.jpg"
-                  alt="SkyAndSouls event design mood"
+                  alt="SkyAndSoul event design mood"
                   fill
                   className="object-cover"
                   priority={false}

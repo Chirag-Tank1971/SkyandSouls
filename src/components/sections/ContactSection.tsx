@@ -47,7 +47,7 @@ export function ContactSection() {
       "",
       formState.message || "(No additional message)",
     ];
-    return `mailto:hello@skyandsouls.com?subject=${encodeURIComponent(
+    return `mailto:hello@skyandsoul.com?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
   }, [formState]);

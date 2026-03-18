@@ -16,7 +16,7 @@ export function SiteFooter() {
         >
           <div>
             <div className="font-display text-2xl font-semibold tracking-wide text-foreground">
-              SkyAndSouls
+              SkyAndSoul
             </div>
             <p className="mt-3 max-w-md text-sm leading-7 text-foreground/60">
               A premium wedding-first event studio crafting celebrations with
@@ -59,10 +59,10 @@ export function SiteFooter() {
               <div className="text-sm font-semibold text-foreground">Email</div>
               <Separator className="my-3 bg-border/60" />
               <a
-                href="mailto:hello@skyandsouls.com"
+                href="mailto:hello@skyandsoul.com"
                 className="text-sm text-foreground/60 hover:text-foreground"
               >
-                hello@skyandsouls.com
+                hello@skyandsoul.com
               </a>
             </div>
           </div>
@@ -70,7 +70,7 @@ export function SiteFooter() {
 
         <Separator className="my-10 bg-border/60" />
         <div className="flex flex-col items-start justify-between gap-4 text-xs text-foreground/50 md:flex-row md:items-center">
-          <div>© {new Date().getFullYear()} SkyAndSouls. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} SkyAndSoul. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <span className="text-foreground/40">Designed for weddings + motion.</span>
           </div>

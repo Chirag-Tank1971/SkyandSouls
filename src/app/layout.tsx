@@ -18,32 +18,32 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://skyandsouls.com"),
+  metadataBase: new URL("https://skyandsoul.com"),
   title: {
-    default: "SkyAndSouls | Luxury Event Management",
-    template: "%s | SkyAndSouls",
+    default: "SkyAndSoul | Luxury Event Management",
+    template: "%s | SkyAndSoul",
   },
   description:
-    "SkyAndSouls is a premium event management studio crafting weddings, corporate experiences, private celebrations, and destination events with cinematic precision.",
+    "SkyAndSoul is a premium event management studio crafting weddings, corporate experiences, private celebrations, and destination events with cinematic precision.",
   keywords: [
     "event management",
     "wedding planner",
     "corporate events",
     "destination wedding",
     "luxury events",
-    "SkyAndSouls",
+    "SkyAndSoul",
   ],
   openGraph: {
     type: "website",
-    title: "SkyAndSouls | Luxury Event Management",
+    title: "SkyAndSoul | Luxury Event Management",
     description:
       "A premium event management studio crafting weddings, corporate experiences, private celebrations, and destination events.",
-    url: "https://skyandsouls.com",
-    siteName: "SkyAndSouls",
+    url: "https://skyandsoul.com",
+    siteName: "SkyAndSoul",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SkyAndSouls | Luxury Event Management",
+    title: "SkyAndSoul | Luxury Event Management",
     description:
       "A premium event management studio crafting weddings, corporate experiences, private celebrations, and destination events.",
   },

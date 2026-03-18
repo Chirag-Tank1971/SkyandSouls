@@ -43,7 +43,7 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-foreground/65 sm:text-lg sm:leading-8">
-            SkyAndSouls designs luxury celebrations with cinematic storytelling
+            SkyAndSoul designs luxury celebrations with cinematic storytelling
             and meticulous production—so your guests feel the atmosphere before
             they understand it.
           </p>

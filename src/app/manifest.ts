@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "SkyAndSouls",
-    short_name: "SkyAndSouls",
+    name: "SkyAndSoul",
+    short_name: "SkyAndSoul",
     description: "Luxury event management studio.",
     start_url: "/",
     display: "standalone",

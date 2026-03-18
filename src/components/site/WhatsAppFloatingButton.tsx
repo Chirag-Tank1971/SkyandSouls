@@ -9,7 +9,7 @@ type WhatsAppFloatingButtonProps = {
 
 export function WhatsAppFloatingButton({
   phoneNumberE164,
-  message = "Hi SkyAndSouls! I’d like to book a consultation.",
+  message = "Hi SkyAndSoul! I’d like to book a consultation.",
 }: WhatsAppFloatingButtonProps) {
   const href = `https://wa.me/${phoneNumberE164.replace("+", "")}?text=${encodeURIComponent(
     message,

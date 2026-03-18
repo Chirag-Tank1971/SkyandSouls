@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -23,14 +24,19 @@ export function SiteHeader() {
       >
         <div className="flex items-center justify-between gap-4">
           <a href="#top" className="group inline-flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-xl bg-foreground/5 ring-1 ring-border/60 transition group-hover:bg-foreground/7">
-              <span className="font-display text-gradient text-lg font-semibold">
-                S
-              </span>
+            <span className="relative grid size-10 place-items-center overflow-hidden rounded-xl ring-1 ring-border/60 transition group-hover:ring-border/80">
+              <Image
+                src="/logo.png"
+                alt="SkyAndSoul logo"
+                fill
+                sizes="40px"
+                className="object-cover"
+                priority
+              />
             </span>
             <div className="leading-tight">
               <div className="font-display text-base font-semibold tracking-wide text-foreground">
-                SkyAndSouls
+                SkyAndSoul
               </div>
               <div className="text-xs text-foreground/55">Wedding Event Studio</div>
             </div>

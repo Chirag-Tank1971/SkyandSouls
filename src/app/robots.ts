@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://skyandsouls.com/sitemap.xml",
+    sitemap: "https://skyandsoul.com/sitemap.xml",
   };
 }
 
