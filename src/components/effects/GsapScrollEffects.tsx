@@ -8,6 +8,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function GsapScrollEffects() {
   useEffect(() => {
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
+    const lenis = (window as unknown as { __lenis?: { on: (e: string, cb: () => void) => void } })
+      .__lenis;
+
+    const onLenisScroll = () => {
+      ScrollTrigger.update();
+    };
+
+    if (lenis) {
+      lenis.on("scroll", onLenisScroll);
+    }
+
     const sections = Array.from(
       document.querySelectorAll<HTMLElement>("[data-gsap='reveal']"),
     );
@@ -51,10 +64,13 @@ export function GsapScrollEffects() {
             start: "top bottom",
             end: "bottom top",
             scrub: true,
+            fastScrollEnd: true,
           },
         },
       );
     });
+
+    ScrollTrigger.refresh();
 
     return () => {
       for (const animation of animations) {
@@ -65,7 +81,7 @@ export function GsapScrollEffects() {
         animation.scrollTrigger?.kill();
         animation.kill();
       }
-      ScrollTrigger.refresh();
+      // Avoid a refresh during teardown; it can cause a noticeable hitch.
     };
   }, []);
 

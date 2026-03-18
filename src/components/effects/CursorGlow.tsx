@@ -8,6 +8,13 @@ export function CursorGlow() {
   const animationFrameIdRef = useRef<number | null>(null);
 
   useEffect(() => {
+    const prefersReducedMotion =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+    const isCoarsePointer = window.matchMedia?.("(pointer: coarse)")?.matches ?? false;
+    if (prefersReducedMotion || isCoarsePointer) {
+      return;
+    }
+
     const onPointerMove = (event: PointerEvent) => {
       latestPointerRef.current = { x: event.clientX, y: event.clientY };
       if (animationFrameIdRef.current !== null) {
@@ -39,7 +46,7 @@ export function CursorGlow() {
     <div
       ref={overlayRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-[5] opacity-70 mix-blend-screen"
+      className="pointer-events-none fixed inset-0 z-5 opacity-60 mix-blend-screen will-change-[background]"
       style={{
         background:
           "radial-gradient(480px 480px at var(--x, 50%) var(--y, 50%), rgba(168, 85, 247, 0.22), transparent 55%), radial-gradient(520px 520px at calc(var(--x, 50%) + 180px) calc(var(--y, 50%) - 120px), rgba(34, 211, 238, 0.18), transparent 60%)",

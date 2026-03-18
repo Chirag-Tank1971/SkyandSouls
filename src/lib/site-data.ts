@@ -107,6 +107,76 @@ export const portfolioItems: PortfolioItem[] = [
   },
 ];
 
+export type TeamMember = {
+  id: string;
+  name: string;
+  title: string;
+  specialty: string;
+  imageSrc: string;
+};
+
+export const mainOwners: TeamMember[] = [
+  {
+    id: "owner-aria",
+    name: "Aria Nayar",
+    title: "Co-Founder • Creative Director",
+    specialty: "Concept worlds, styling language, and brand-level storytelling.",
+    imageSrc: "/team/owner-aria.svg",
+  },
+  {
+    id: "owner-kai",
+    name: "Kai Mehta",
+    title: "Co-Founder • Production Lead",
+    specialty: "Logistics, timelines, vendor orchestration, and show-day control.",
+    imageSrc: "/team/owner-kai.svg",
+  },
+  {
+    id: "owner-noor",
+    name: "Noor Iqbal",
+    title: "Co-Founder • Hospitality & Ops",
+    specialty: "Guest journeys, concierge service, and on-ground experience design.",
+    imageSrc: "/team/owner-noor.svg",
+  },
+];
+
+export const employees: TeamMember[] = [
+  {
+    id: "emp-mira",
+    name: "Mira Chen",
+    title: "Senior Event Planner",
+    specialty: "Planning systems, budgets, and vendor communications.",
+    imageSrc: "/team/emp-mira.svg",
+  },
+  {
+    id: "emp-zayn",
+    name: "Zayn Qureshi",
+    title: "Design Producer",
+    specialty: "Stage, florals, lighting cues, and cohesive décor execution.",
+    imageSrc: "/team/emp-zayn.svg",
+  },
+  {
+    id: "emp-elena",
+    name: "Elena Rossi",
+    title: "Client Experience Manager",
+    specialty: "Hospitality flow, guest support, and VIP coordination.",
+    imageSrc: "/team/emp-elena.svg",
+  },
+  {
+    id: "emp-adi",
+    name: "Adi Krishnan",
+    title: "Logistics Coordinator",
+    specialty: "Run-of-show, movement plans, and contingency readiness.",
+    imageSrc: "/team/emp-adi.svg",
+  },
+  {
+    id: "emp-sana",
+    name: "Sana Patel",
+    title: "Content & Moments",
+    specialty: "Capture planning, shot lists, and creator/vendor alignment.",
+    imageSrc: "/team/emp-sana.svg",
+  },
+];
+
 export type Testimonial = {
   name: string;
   role: string;

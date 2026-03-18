@@ -5,23 +5,20 @@ import { useEffect, useRef } from "react";
 type Particle = {
   x: number;
   y: number;
-  radius: number;
-  opacity: number;
   velocityX: number;
   velocityY: number;
+  hueShift: number;
 };
 
 function generateParticles(particleCount: number, canvasWidth: number, canvasHeight: number) {
   const particles: Particle[] = [];
   for (let i = 0; i < particleCount; i += 1) {
-    const radius = 0.8 + Math.random() * 2.2;
     particles.push({
       x: Math.random() * canvasWidth,
       y: Math.random() * canvasHeight,
-      radius,
-      opacity: 0.12 + Math.random() * 0.28,
-      velocityX: (-0.18 + Math.random() * 0.36) * (radius / 2),
-      velocityY: (-0.12 + Math.random() * 0.24) * (radius / 2),
+      velocityX: -0.08 + Math.random() * 0.16,
+      velocityY: -0.06 + Math.random() * 0.12,
+      hueShift: Math.random(),
     });
   }
   return particles;
@@ -32,6 +29,12 @@ export function ParticlesCanvas() {
   const animationFrameIdRef = useRef<number | null>(null);
 
   useEffect(() => {
+    const prefersReducedMotion =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) {
       return;
@@ -44,61 +47,91 @@ export function ParticlesCanvas() {
 
     const updateCanvasSize = () => {
       const { innerWidth, innerHeight, devicePixelRatio } = window;
-      canvas.width = Math.floor(innerWidth * devicePixelRatio);
-      canvas.height = Math.floor(innerHeight * devicePixelRatio);
+      const dpr = Math.min(1.5, devicePixelRatio || 1);
+      canvas.width = Math.floor(innerWidth * dpr);
+      canvas.height = Math.floor(innerHeight * dpr);
       canvas.style.width = `${innerWidth}px`;
       canvas.style.height = `${innerHeight}px`;
-      context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
       return { width: innerWidth, height: innerHeight };
     };
 
     let { width: canvasWidth, height: canvasHeight } = updateCanvasSize();
 
-    const particleCount = Math.min(90, Math.max(44, Math.round(canvasWidth / 18)));
+    const isSmallScreen = canvasWidth < 768;
+    const particleCount = Math.min(56, Math.max(22, Math.round(canvasWidth / (isSmallScreen ? 42 : 30))));
     let particles = generateParticles(particleCount, canvasWidth, canvasHeight);
 
     const onResize = () => {
       const next = updateCanvasSize();
       canvasWidth = next.width;
       canvasHeight = next.height;
-      const nextParticleCount = Math.min(90, Math.max(44, Math.round(canvasWidth / 18)));
+      const nextIsSmallScreen = canvasWidth < 768;
+      const nextParticleCount = Math.min(
+        56,
+        Math.max(22, Math.round(canvasWidth / (nextIsSmallScreen ? 42 : 30))),
+      );
       particles = generateParticles(nextParticleCount, canvasWidth, canvasHeight);
     };
 
     window.addEventListener("resize", onResize, { passive: true });
 
-    const render = () => {
-      context.clearRect(0, 0, canvasWidth, canvasHeight);
+    let lastFrameTime = 0;
+    const targetFrameMs = isSmallScreen ? 42 : 33; // ~24fps on small screens, ~30fps elsewhere
 
+    const render = (time: number) => {
+      if (document.visibilityState === "hidden") {
+        animationFrameIdRef.current = window.requestAnimationFrame(render);
+        return;
+      }
+
+      if (time - lastFrameTime < targetFrameMs) {
+        animationFrameIdRef.current = window.requestAnimationFrame(render);
+        return;
+      }
+      lastFrameTime = time;
+
+      context.clearRect(0, 0, canvasWidth, canvasHeight);
       context.globalCompositeOperation = "lighter";
 
+      // Dots (very cheap) + a few connecting lines.
       for (const particle of particles) {
         particle.x += particle.velocityX;
         particle.y += particle.velocityY;
 
-        if (particle.x < -30) particle.x = canvasWidth + 30;
-        if (particle.x > canvasWidth + 30) particle.x = -30;
-        if (particle.y < -30) particle.y = canvasHeight + 30;
-        if (particle.y > canvasHeight + 30) particle.y = -30;
+        if (particle.x < -18) particle.x = canvasWidth + 18;
+        if (particle.x > canvasWidth + 18) particle.x = -18;
+        if (particle.y < -18) particle.y = canvasHeight + 18;
+        if (particle.y > canvasHeight + 18) particle.y = -18;
 
-        const gradient = context.createRadialGradient(
-          particle.x,
-          particle.y,
-          0,
-          particle.x,
-          particle.y,
-          44,
-        );
-        gradient.addColorStop(0, `rgba(168, 85, 247, ${particle.opacity})`);
-        gradient.addColorStop(0.55, `rgba(34, 211, 238, ${particle.opacity * 0.85})`);
-        gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
-
-        context.fillStyle = gradient;
+        const tint = particle.hueShift < 0.5 ? "168, 85, 247" : "34, 211, 238";
+        context.fillStyle = `rgba(${tint}, 0.22)`;
         context.beginPath();
-        context.arc(particle.x, particle.y, 42 + particle.radius * 2, 0, Math.PI * 2);
+        context.arc(particle.x, particle.y, 1.35, 0, Math.PI * 2);
         context.fill();
       }
 
+      // Sparse lines to add depth without heavy gradients.
+      context.strokeStyle = "rgba(255,255,255,0.08)";
+      context.lineWidth = 1;
+      for (let i = 0; i < particles.length; i += 1) {
+        const a = particles[i];
+        for (let j = i + 1; j < particles.length; j += 1) {
+          const b = particles[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const distanceSq = dx * dx + dy * dy;
+          if (distanceSq < 120 * 120 && Math.random() < 0.022) {
+            context.globalAlpha = Math.max(0.04, 1 - distanceSq / (120 * 120)) * 0.8;
+            context.beginPath();
+            context.moveTo(a.x, a.y);
+            context.lineTo(b.x, b.y);
+            context.stroke();
+          }
+        }
+      }
+
+      context.globalAlpha = 1;
       context.globalCompositeOperation = "source-over";
       animationFrameIdRef.current = window.requestAnimationFrame(render);
     };
@@ -117,7 +150,7 @@ export function ParticlesCanvas() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-[1] opacity-40"
+      className="pointer-events-none fixed inset-0 z-1 opacity-30"
     />
   );
 }
