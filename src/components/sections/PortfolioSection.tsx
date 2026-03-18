@@ -67,7 +67,7 @@ export function PortfolioSection() {
           </Tabs>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {visibleItems.map((item, index) => (
             <motion.div
               key={item.id}
@@ -192,7 +192,7 @@ export function PortfolioSection() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
             {employees.map((member, index) => (
               <motion.div
                 key={member.id}
