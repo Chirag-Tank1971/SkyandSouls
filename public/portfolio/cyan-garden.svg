@@ -1,0 +1,30 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#060612"/>
+      <stop offset="0.5" stop-color="#0A0A1A"/>
+      <stop offset="1" stop-color="#05050E"/>
+    </linearGradient>
+    <radialGradient id="c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(820 360) rotate(90) scale(520 920)">
+      <stop stop-color="#22D3EE" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="d" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(540 700) rotate(10) scale(740 520)">
+      <stop stop-color="#A855F7" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="820" cy="360" r="520" fill="url(#c)"/>
+  <circle cx="540" cy="700" r="520" fill="url(#d)"/>
+  <g opacity="0.4" stroke="rgba(255,255,255,0.22)" stroke-width="2">
+    <path d="M250 820C420 760 520 690 660 690C820 690 940 780 1130 740C1300 705 1400 610 1490 570"/>
+    <path d="M260 860C420 795 530 725 680 725C850 725 960 805 1140 770C1310 742 1410 660 1500 625"/>
+  </g>
+  <text x="92" y="142" fill="rgba(255,255,255,0.78)" font-size="54" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
+    Cyan Garden Night
+  </text>
+  <text x="94" y="190" fill="rgba(255,255,255,0.55)" font-size="22" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
+    Private / Goa
+  </text>
+</svg>

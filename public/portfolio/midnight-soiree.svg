@@ -1,0 +1,35 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05050C"/>
+      <stop offset="0.55" stop-color="#0B0B1A"/>
+      <stop offset="1" stop-color="#040409"/>
+    </linearGradient>
+    <radialGradient id="m1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(520 420) rotate(20) scale(780 560)">
+      <stop stop-color="#A855F7" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="m2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1180 420) rotate(-20) scale(820 600)">
+      <stop stop-color="#22D3EE" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="520" cy="420" r="520" fill="url(#m1)"/>
+  <circle cx="1180" cy="420" r="560" fill="url(#m2)"/>
+  <g opacity="0.5">
+    <circle cx="420" cy="720" r="6" fill="rgba(255,255,255,0.55)"/>
+    <circle cx="520" cy="690" r="5" fill="rgba(255,255,255,0.42)"/>
+    <circle cx="690" cy="740" r="7" fill="rgba(255,255,255,0.48)"/>
+    <circle cx="820" cy="690" r="6" fill="rgba(255,255,255,0.36)"/>
+    <circle cx="980" cy="735" r="7" fill="rgba(255,255,255,0.46)"/>
+    <circle cx="1140" cy="700" r="6" fill="rgba(255,255,255,0.36)"/>
+    <circle cx="1280" cy="742" r="7" fill="rgba(255,255,255,0.44)"/>
+  </g>
+  <text x="92" y="142" fill="rgba(255,255,255,0.78)" font-size="54" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
+    Midnight Soirée
+  </text>
+  <text x="94" y="190" fill="rgba(255,255,255,0.55)" font-size="22" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
+    Private / Mumbai
+  </text>
+</svg>

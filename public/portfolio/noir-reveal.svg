@@ -1,0 +1,29 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05050C"/>
+      <stop offset="0.55" stop-color="#0A0A16"/>
+      <stop offset="1" stop-color="#04040A"/>
+    </linearGradient>
+    <radialGradient id="a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(420 380) rotate(20) scale(860 600)">
+      <stop stop-color="#22D3EE" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1220 300) rotate(-20) scale(820 560)">
+      <stop stop-color="#A855F7" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="420" cy="380" r="520" fill="url(#a)"/>
+  <circle cx="1220" cy="300" r="540" fill="url(#b)"/>
+  <rect x="240" y="620" width="1120" height="16" rx="8" fill="rgba(255,255,255,0.14)"/>
+  <rect x="240" y="672" width="860" height="10" rx="5" fill="rgba(255,255,255,0.10)"/>
+  <rect x="240" y="706" width="980" height="10" rx="5" fill="rgba(255,255,255,0.10)"/>
+  <text x="92" y="142" fill="rgba(255,255,255,0.78)" font-size="54" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
+    Noir Product Reveal
+  </text>
+  <text x="94" y="190" fill="rgba(255,255,255,0.55)" font-size="22" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
+    Corporate / Dubai
+  </text>
+</svg>

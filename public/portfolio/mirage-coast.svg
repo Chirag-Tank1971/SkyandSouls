@@ -1,0 +1,28 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#060610"/>
+      <stop offset="0.6" stop-color="#090918"/>
+      <stop offset="1" stop-color="#04040B"/>
+    </linearGradient>
+    <radialGradient id="m1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(420 260) rotate(40) scale(820 580)">
+      <stop stop-color="#A855F7" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="m2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1230 450) rotate(-30) scale(900 640)">
+      <stop stop-color="#22D3EE" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="420" cy="260" r="560" fill="url(#m1)"/>
+  <circle cx="1230" cy="450" r="600" fill="url(#m2)"/>
+  <path d="M140 740C320 700 500 770 690 730C900 680 1060 540 1280 575C1405 595 1510 660 1580 720V1000H140V740Z" fill="rgba(255,255,255,0.08)"/>
+  <path d="M160 760C330 720 520 780 700 745C920 700 1080 560 1295 592C1420 612 1520 680 1580 740" stroke="rgba(34,211,238,0.35)" stroke-width="2" stroke-linecap="round"/>
+  <text x="92" y="142" fill="rgba(255,255,255,0.78)" font-size="54" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
+    Mirage Coastline
+  </text>
+  <text x="94" y="190" fill="rgba(255,255,255,0.55)" font-size="22" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
+    Destination / Santorini
+  </text>
+</svg>
