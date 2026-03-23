@@ -35,8 +35,8 @@ export function SiteFooter() {
                 <a className="block hover:text-foreground" href="#services">
                   Services
                 </a>
-                <a className="block hover:text-foreground" href="#portfolio">
-                  Portfolio
+                <a className="block hover:text-foreground" href="#experience">
+                  Experience
                 </a>
               </div>
             </div>

@@ -1,105 +1,86 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
+const heroSlides = [
+  "/portfolio/the-lalit-jaipur.jpg",
+  "/portfolio/umaid-bhawan-palace-jodhpur.webp",
+];
 
 export function HeroSection() {
-  return (
-    <section id="top" className="relative min-h-screen overflow-hidden">
-      <div className="absolute inset-0 bg-hero-gradient" />
+  const [activeSlide, setActiveSlide] = useState(0);
 
+  useEffect(() => {
+    if (heroSlides.length <= 1) return;
+
+    const intervalId = window.setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  return (
+    <section id="top" className="relative min-h-screen overflow-hidden bg-black text-white">
+      <AnimatePresence mode="sync" initial={false}>
+        <motion.div
+          key={heroSlides[activeSlide]}
+          aria-hidden="true"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('${heroSlides[activeSlide]}')` }}
+          initial={{ opacity: 0, scale: 1.08, x: 18 }}
+          animate={{ opacity: 1, scale: 1.02, x: 0 }}
+          exit={{ opacity: 0, scale: 1.01, x: -18 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </AnimatePresence>
       <div
         aria-hidden="true"
-        className="absolute inset-0 opacity-70 mask-[radial-gradient(60%_70%_at_50%_40%,black,transparent)]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
+        className="absolute inset-0 bg-black/55"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.12)_20%,rgba(0,0,0,0.65)_100%)]"
       />
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-[min(1200px,calc(100%-2rem))] flex-col justify-center pb-28 pt-32">
+      <div className="relative z-10 mx-auto flex min-h-screen w-[min(1200px,calc(100%-2rem))] flex-col items-center justify-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl"
+          className="max-w-4xl"
         >
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
-              Premium wedding events
-            </Badge>
-            <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
-              Weddings • Corporate • Private • Destination
-            </Badge>
-          </div>
-
-          <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-            Curate moments.
-            <br />
-            <span className="text-gradient">Command emotion.</span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-base leading-7 text-foreground/65 sm:text-lg sm:leading-8">
-            SkyAndSoul designs luxury celebrations with cinematic storytelling
-            and meticulous production—so your guests feel the atmosphere before
-            they understand it.
+          <p className="font-display text-sm tracking-[0.42em] text-white/80 sm:text-base">
+            DELIVERING SPECTACULAR EVENTS
           </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <h1 className="font-display mt-7 text-5xl font-semibold leading-[1.08] tracking-wide text-white sm:text-6xl lg:text-8xl">
+            SKYANDSOUL
+            <br />
+            <span className="text-[0.88em] tracking-[0.2em]">EVENTZ &amp; DESIGN</span>
+          </h1>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a href="#contact">
-              <Button className="h-12 rounded-full bg-foreground px-6 text-background hover:bg-foreground/92">
-                Book a consultation <ArrowRight className="ml-2 size-4" />
+              <Button className="h-12 rounded-full bg-[#e8aa93] px-9 text-sm font-semibold tracking-[0.12em] text-white hover:bg-[#d99782]">
+                PLAN MY EVENT
               </Button>
             </a>
-            <a href="#portfolio">
+            <a href="#about">
               <Button
                 variant="secondary"
-                className="h-12 rounded-full border border-border/60 bg-background/60 px-6 text-foreground hover:bg-background/80"
+                className="h-12 rounded-full border border-white/40 bg-white/10 px-9 text-sm font-semibold tracking-widest text-white hover:bg-white/20"
               >
-                Explore portfolio <Sparkles className="ml-2 size-4" />
+                ABOUT US
               </Button>
             </a>
           </div>
+          <p className="mt-3 text-xs font-medium tracking-[0.08em] text-white/80 sm:text-sm">
+            Response within 24 hours
+          </p>
         </motion.div>
-
-        <div className="mt-16 grid gap-4 md:grid-cols-3" data-gsap="reveal">
-          {[
-            {
-              title: "Design-led",
-              description: "Story-first concepts with editorial-level taste.",
-            },
-            {
-              title: "Production-perfect",
-              description: "Logistics, vendors, and timing executed with calm precision.",
-            },
-            {
-              title: "Guest-obsessed",
-              description: "Every touchpoint engineered for emotional impact.",
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="glass glow-ring rounded-3xl p-6 transition hover:translate-y-[-2px]"
-            >
-              <div className="text-sm font-semibold tracking-wide text-foreground">
-                {item.title}
-              </div>
-              <div className="mt-2 text-sm leading-7 text-foreground/60">
-                {item.description}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div
-          aria-hidden="true"
-          data-gsap="parallax"
-          data-strength="90"
-          className="pointer-events-none absolute right-[-160px] top-[160px] hidden h-[420px] w-[420px] rounded-full bg-linear-to-br from-[#c8a2c8]/35 via-[#e7b7a4]/18 to-[#d4af37]/14 blur-2xl lg:block"
-        />
       </div>
     </section>
   );

@@ -24,6 +24,85 @@ export const services: Service[] = [
   },
 ];
 
+export type ServicePackage = {
+  id: string;
+  title: string;
+  description: string;
+  startingFrom: string;
+  highlights: string[];
+};
+
+export const servicePackages: ServicePackage[] = [
+  {
+    id: "full-planning",
+    title: "Full planning",
+    description:
+      "Complete event ownership from concept to execution, with one central planning team.",
+    startingFrom: "Starting from INR 2.5L",
+    highlights: ["Concept development", "Timeline + budget control", "Vendor management"],
+  },
+  {
+    id: "decor-styling",
+    title: "Decor & styling",
+    description:
+      "Visual world-building for stage, dining, entry experiences, florals, and ambiance.",
+    startingFrom: "Starting from INR 1.2L",
+    highlights: ["Theme direction", "Stage + floral styling", "Moodboard-to-installation"],
+  },
+  {
+    id: "production-logistics",
+    title: "Production & logistics",
+    description:
+      "Precision operations for AV, technical setup, movement plans, and run-of-show delivery.",
+    startingFrom: "Starting from INR 1.8L",
+    highlights: ["Technical production", "Vendor coordination", "On-ground execution"],
+  },
+  {
+    id: "hospitality",
+    title: "Hospitality & guest experience",
+    description:
+      "Guest-first journeys with concierge flow, support teams, and premium service touchpoints.",
+    startingFrom: "Custom quote",
+    highlights: ["Guest flow design", "VIP coordination", "Arrival-to-departure support"],
+  },
+];
+
+export type SocialProofStat = {
+  label: string;
+  value: string;
+};
+
+export const socialProofStats: SocialProofStat[] = [
+  { label: "Events delivered", value: "25+" },
+  { label: "Cities covered", value: "10+" },
+  { label: "Repeat-client rate", value: "72%" },
+];
+
+export type ClientLogo = {
+  name: string;
+  imageSrc: string;
+};
+
+export const clientLogos: ClientLogo[] = [
+  {
+    name: "Tata Motors",
+    imageSrc: "/clients/tata-motors.png",
+  },
+  {
+    name: "Samsung",
+    imageSrc: "/clients/samsung.png",
+  },
+  {
+    name: "Kotak",
+    imageSrc: "/clients/kotak.png",
+  },
+];
+
+export const googleRating = {
+  score: 4.9,
+  reviews: 118,
+};
+
 export type PortfolioCategory = "All" | "Weddings" | "Corporate" | "Private" | "Destination";
 
 export type PortfolioItem = {
