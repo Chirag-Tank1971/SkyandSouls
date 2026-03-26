@@ -17,17 +17,20 @@ function hashString(value: string) {
 }
 
 function randomDelay(id: string, total: number) {
-  const randomOrder = galleryImages
-    .map((item) => ({ id: item.id, score: hashString(item.id) }))
-    .sort((a, b) => a.score - b.score);
-
-  const rank = randomOrder.findIndex((item) => item.id === id);
-  if (rank < 0) return 0;
+  const rank = randomRankById.get(id);
+  if (rank === undefined || rank < 0) return 0;
 
   // Randomized order with consistent rhythm and max delay cap.
   const step = total > 16 ? 0.03 : 0.04;
   return Math.min(rank * step, 0.65);
 }
+
+const randomRankById = new Map(
+  galleryImages
+    .map((item) => ({ id: item.id, score: hashString(item.id) }))
+    .sort((a, b) => a.score - b.score)
+    .map((item, rank) => [item.id, rank] as const),
+);
 
 function randomOffset(id: string) {
   const hash = hashString(id);
@@ -45,7 +48,7 @@ export function GallerySection() {
   return (
     <section
       id="gallery"
-      className="cv-auto relative z-10 pt-24 pb-10 sm:pt-28 sm:pb-12"
+      className="cv-auto relative z-10 pt-12 pb-10 sm:pt-14 sm:pb-12"
     >
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">

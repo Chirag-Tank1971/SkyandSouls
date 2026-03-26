@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { FeaturedAlbumsSection } from "@/components/sections/FeaturedAlbumsSection";
 import { SocialProofSection } from "@/components/sections/SocialProofSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
@@ -34,6 +35,7 @@ function Page() {
     <>
       <SiteHeader />
       <HeroSection />
+      <FeaturedAlbumsSection />
       <SocialProofSection />
       <AboutSection />
       <ServicesSection />

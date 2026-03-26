@@ -186,6 +186,12 @@
     .glass {
       backdrop-filter: none;
     }
+
+    .backdrop-blur-sm,
+    .backdrop-blur-xl {
+      -webkit-backdrop-filter: none !important;
+      backdrop-filter: none !important;
+    }
   }
 
   .glow-ring {
@@ -275,6 +281,15 @@
       -webkit-text-fill-color: #ffffff;
       filter: none;
       text-shadow: 0 2px 48px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  /* Mobile optimization: avoid continuous paint-heavy hero title effect. */
+  @media (max-width: 768px) {
+    .hero-title-gold-flow {
+      animation: none;
+      background-size: 100% 100%;
+      filter: none;
     }
   }
 }

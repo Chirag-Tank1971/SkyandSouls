@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function AboutSection() {
   return (
-    <section id="about" className="cv-auto relative z-10 py-24 sm:py-28">
+    <section id="about" className="cv-auto relative z-10 pt-12 pb-10 sm:pt-14 sm:pb-12">
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <motion.div

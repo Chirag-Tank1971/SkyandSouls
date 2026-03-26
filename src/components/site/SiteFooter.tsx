@@ -1,12 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
+import { footerImageRail } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
     <footer className="relative z-10 border-t border-border/60 bg-background/70">
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))] py-14">
+        <div className="mb-10">
+          <div className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-foreground/55">
+            Latest moments
+          </div>
+          <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
+            {footerImageRail.map((imageSrc, index) => (
+              <a
+                key={`${imageSrc}-${index}`}
+                href="#gallery"
+                className="relative aspect-square overflow-hidden rounded-xl border border-border/55 bg-background/70"
+              >
+                <Image
+                  src={imageSrc}
+                  alt="SkyAndSoul gallery preview"
+                  fill
+                  className="object-cover transition duration-300 hover:scale-[1.04]"
+                  sizes="(max-width: 640px) 33vw, 16vw"
+                  loading="lazy"
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}

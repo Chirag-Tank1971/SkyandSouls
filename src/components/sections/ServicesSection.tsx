@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import { servicePackages, services } from "@/lib/site-data";
+import Image from "next/image";
+import { services } from "@/lib/site-data";
 import { Badge } from "@/components/ui/badge";
 
 const serviceGradients: Record<string, string> = {
@@ -14,7 +15,7 @@ const serviceGradients: Record<string, string> = {
 
 export function ServicesSection() {
   return (
-    <section id="services" className="cv-auto relative z-10 py-24 sm:py-28">
+    <section id="services" className="cv-auto relative z-10 pt-12 pb-10 sm:pt-14 sm:pb-12">
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -50,6 +51,16 @@ export function ServicesSection() {
               />
 
               <div className="relative">
+                <div className="relative mb-5 aspect-4/3 w-full overflow-hidden rounded-2xl border border-border/55 bg-background/60">
+                  <Image
+                    src={service.imageSrc}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="flex items-center justify-between">
                   <div className="font-display text-xl font-semibold tracking-tight text-foreground">
                     {service.title}
@@ -74,58 +85,6 @@ export function ServicesSection() {
           ))}
         </div>
 
-        <div className="mt-16" data-gsap="reveal">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <Badge className="rounded-full border-border/60 bg-background/60 text-foreground/80 hover:bg-background/70">
-                Service packages
-              </Badge>
-              <h3 className="font-display mt-4 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                Built for clarity,{" "}
-                <span className="text-gradient">priced for planning</span>.
-              </h3>
-            </div>
-            <p className="max-w-xl text-sm leading-7 text-foreground/60 sm:text-base">
-              Choose the service depth you need. Every package can be adapted to
-              your venue, guest count, and timeline.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {servicePackages.map((pkg, index) => (
-              <motion.div
-                key={pkg.id}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20%" }}
-                transition={{
-                  duration: 0.65,
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: index * 0.05,
-                }}
-                className="glass-lite glow-ring rounded-3xl p-6"
-              >
-                <div className="text-xs font-semibold uppercase tracking-widest text-foreground/60">
-                  {pkg.startingFrom}
-                </div>
-                <div className="font-display mt-3 text-xl font-semibold text-foreground">
-                  {pkg.title}
-                </div>
-                <p className="mt-3 text-sm leading-7 text-foreground/65">
-                  {pkg.description}
-                </p>
-                <ul className="mt-5 space-y-2 text-sm text-foreground/65">
-                  {pkg.highlights.map((highlight) => (
-                    <li key={highlight} className="flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-linear-to-r from-[#c8a2c8] to-[#e7b7a4]" />
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

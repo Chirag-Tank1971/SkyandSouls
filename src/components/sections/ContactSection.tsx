@@ -53,7 +53,7 @@ export function ContactSection() {
   }, [formState]);
 
   return (
-    <section id="contact" className="cv-auto relative z-10 py-24 sm:py-28">
+    <section id="contact" className="cv-auto relative z-10 pt-12 pb-16 sm:pt-14 sm:pb-18">
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div>

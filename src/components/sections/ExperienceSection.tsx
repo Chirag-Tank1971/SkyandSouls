@@ -7,7 +7,7 @@ import { AnimatedCounter } from "@/components/shared/AnimatedCounter";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="cv-auto relative z-10 py-24 sm:py-28">
+    <section id="experience" className="cv-auto relative z-10 pt-12 pb-10 sm:pt-14 sm:pb-12">
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>

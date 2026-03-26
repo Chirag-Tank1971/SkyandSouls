@@ -1,10 +1,11 @@
-export type ServiceKey = "wedding" | "corporate";
+export type ServiceKey = "wedding" | "corporate" | "private" | "destination";
 
 export type Service = {
   key: ServiceKey;
   title: string;
   description: string;
   highlights: string[];
+  imageSrc: string;
 };
 
 export const services: Service[] = [
@@ -14,6 +15,7 @@ export const services: Service[] = [
     description:
       "Editorial storytelling, timeless design, and flawless execution—crafted around your love story.",
     highlights: ["Creative direction", "Vendor orchestration", "Show-day excellence"],
+    imageSrc: "/portfolio/the-lalit-jaipur.jpg",
   },
   {
     key: "corporate",
@@ -21,6 +23,77 @@ export const services: Service[] = [
     description:
       "Brand-forward experiences that feel effortless—product launches, conferences, and executive retreats.",
     highlights: ["Run-of-show design", "Stage & AV", "Guest experience"],
+    imageSrc: "/portfolio/marriott-hotel.jpg",
+  },
+  {
+    key: "private",
+    title: "Private celebrations",
+    description:
+      "Bespoke birthdays, anniversaries, and milestone evenings with elevated ambiance and warm hosting.",
+    highlights: ["Theme-led styling", "Premium hospitality", "Atmosphere design"],
+    imageSrc: "/portfolio/fairmont.jpg",
+  },
+  {
+    key: "destination",
+    title: "Destination events",
+    description:
+      "End-to-end planning across cities and countries with one calm production command center.",
+    highlights: ["Travel + logistics", "Local vendor curation", "Multi-day programming"],
+    imageSrc: "/portfolio/umaid-bhawan-palace-jodhpur.webp",
+  },
+];
+
+export type AlbumItem = {
+  id: string;
+  title: string;
+  subtitle: string;
+  imageSrc: string;
+};
+
+export const heroSlides = [
+  "/portfolio/the-lalit-jaipur.jpg",
+  "/portfolio/umaid-bhawan-palace-jodhpur.webp",
+  "/portfolio/rambagh-palace.jpg",
+  "/portfolio/hyatt-regency.jpg",
+  "/portfolio/fairmont.jpg",
+];
+
+export const featuredAlbums: AlbumItem[] = [
+  {
+    id: "album-sindhu-datta",
+    title: "Sindhu & Datta",
+    subtitle: "Wedding album",
+    imageSrc: "/gallery/imgi_107_sindhu27-768x672.jpg",
+  },
+  {
+    id: "album-saadhya-ashwin",
+    title: "Saadhya & Ashwin",
+    subtitle: "Bali moments",
+    imageSrc: "/gallery/imgi_11_saadya-ashwini-bali5.jpg",
+  },
+  {
+    id: "album-kara-chaitu",
+    title: "Kara & Chaitu",
+    subtitle: "Ceremony highlights",
+    imageSrc: "/gallery/imgi_142_sindhu23-768x672.jpg",
+  },
+  {
+    id: "album-palace-evening",
+    title: "Palace Evening",
+    subtitle: "Reception styling",
+    imageSrc: "/gallery/imgi_56_sindhu19-768x672.jpg",
+  },
+  {
+    id: "album-signature-vows",
+    title: "Signature Vows",
+    subtitle: "Editorial frames",
+    imageSrc: "/gallery/imgi_61_sindhu16-768x672.jpg",
+  },
+  {
+    id: "album-festive-night",
+    title: "Festive Night",
+    subtitle: "Guest experience",
+    imageSrc: "/gallery/imgi_187_sindhu24-768x672.jpg",
   },
 ];
 
@@ -152,6 +225,14 @@ export const galleryImages: GalleryImage[] = [
   { id: "g-26", src: "/gallery/imgi_56_sindhu19-768x672.jpg", alt: "Palace event" },
   { id: "g-27", src: "/gallery/imgi_61_sindhu16-768x672.jpg", alt: "Reception" },
   { id: "g-28", src: "/gallery/imgi_66_sindhu13-1-768x672.jpg", alt: "Celebration details" },
+  { id: "g-29", src: "/visuals/imgi_7_sindhubanner.jpg", alt: "Sindhu wedding visual story" },
+  { id: "g-30", src: "/visuals/imgi_9_Kara-Chaitu-2.jpg", alt: "Kara and Chaitu visual story" },
+  { id: "g-31", src: "/visuals/imgi_19_Vogue-India.jpg", alt: "Vogue India feature visual" },
+  { id: "g-32", src: "/visuals/imgi_22_NY-TIMES-1.jpg", alt: "New York Times feature visual" },
+  { id: "g-33", src: "/visuals/imgi_25_Youtube.jpg", alt: "YouTube feature visual story" },
+  { id: "g-34", src: "/visuals/imgi_26_Aneesh-Vaishnavi.jpg", alt: "Aneesh and Vaishnavi visual story" },
+  { id: "g-35", src: "/visuals/imgi_85_saadya-ashwini-bali-banner-1536x960.jpg", alt: "Saadhya and Ashwini Bali visual story" },
+  { id: "g-36", src: "/visuals/imgi_14_bride-today-scaled.jpg", alt: "Brides Today feature visual story" },
 ];
 
 export type PortfolioCategory = "All" | "Weddings" | "Corporate" | "Private" | "Destination";
@@ -297,6 +378,7 @@ export type Testimonial = {
   name: string;
   role: string;
   quote: string;
+  imageSrc: string;
 };
 
 export const testimonials: Testimonial[] = [
@@ -305,25 +387,49 @@ export const testimonials: Testimonial[] = [
     role: "Bride",
     quote:
       "SkyAndSoul turned our vision into a cinematic experience. Every detail felt intentional—and effortless.",
+    imageSrc: "/gallery/imgi_34_sindhu26.jpg",
   },
   {
     name: "Marcus Lee",
     role: "Head of Marketing, Lumen",
     quote:
       "From the first storyboard to the final applause, their team executed with calm precision. Our brand never looked better.",
+    imageSrc: "/portfolio/marriott-hotel.jpg",
   },
   {
     name: "Sofia Alvarez",
     role: "Client",
     quote:
       "They transformed a private celebration into a masterpiece. Guests are still talking about the atmosphere.",
+    imageSrc: "/gallery/imgi_39_sindhu25.jpg",
   },
   {
     name: "Ravi Menon",
     role: "Founder, Meridian Ventures",
     quote:
       "Run-of-show, hospitality, and production were world-class. Smooth, premium, and perfectly on time.",
+    imageSrc: "/portfolio/the-oberoi.jpg",
   },
+];
+
+export const preContactCollageImages = [
+  "/gallery/imgi_172_sindhu.jpg4_-768x672.jpg",
+  "/gallery/imgi_152_sindhu20-768x672.jpg",
+  "/gallery/imgi_38_sindhu22.jpg",
+  "/gallery/imgi_45_sindhu15.jpg",
+  "/portfolio/rambagh-palace.jpg",
+  "/portfolio/fairmont.jpg",
+  "/gallery/imgi_66_sindhu13-1-768x672.jpg",
+  "/gallery/imgi_43_sindhu7.jpg",
+];
+
+export const footerImageRail = [
+  "/gallery/imgi_31_sindhu8.jpg",
+  "/gallery/imgi_42_sindhu14.jpg",
+  "/gallery/imgi_61_sindhu16-768x672.jpg",
+  "/gallery/imgi_36_sindhu21.jpg",
+  "/gallery/imgi_107_sindhu27-768x672.jpg",
+  "/portfolio/hyatt-regency.jpg",
 ];
 
 export type ExperienceStat = {

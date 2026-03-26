@@ -18,7 +18,7 @@ export function SocialProofSection() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="cv-auto relative z-10 py-16 sm:py-20">
+    <section className="cv-auto relative z-10 pt-10 pb-10 sm:pt-12 sm:pb-12">
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="glass glow-ring rounded-3xl p-6 sm:p-8" data-gsap="reveal">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
@@ -16,7 +17,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="cv-auto relative z-10 pt-12 pb-14 sm:pt-14 sm:pb-18"
+      className="cv-auto relative z-10 pt-12 pb-12 sm:pt-14 sm:pb-14"
     >
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -57,6 +58,16 @@ export function TestimonialsSection() {
                   className="pl-3 md:basis-1/2 lg:basis-1/3"
                 >
                   <div className="h-full rounded-3xl border border-border/60 bg-linear-to-b from-background/95 via-background/88 to-background/75 p-6 shadow-[0_20px_55px_-42px_rgba(17,12,8,0.65)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-[#e8aa93]/45 hover:shadow-[0_26px_70px_-44px_rgba(142,89,64,0.48)]">
+                    <div className="relative mb-5 aspect-4/3 w-full overflow-hidden rounded-2xl border border-border/55 bg-background/70">
+                      <Image
+                        src={testimonial.imageSrc}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 50vw, 33vw"
+                        loading="lazy"
+                      />
+                    </div>
                     <div className="flex items-center justify-between">
                       <div className="text-[15px] font-semibold text-foreground">
                         {testimonial.name}

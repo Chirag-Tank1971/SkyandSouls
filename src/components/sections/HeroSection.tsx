@@ -9,11 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { Button } from "@/components/ui/button";
-
-const heroSlides = [
-  "/portfolio/the-lalit-jaipur.jpg",
-  "/portfolio/umaid-bhawan-palace-jodhpur.webp",
-];
+import { heroSlides } from "@/lib/site-data";
 
 /** Smooth deceleration — soft land, no snap */
 const heroEase = [0.22, 1, 0.36, 1] as const;
@@ -44,8 +40,10 @@ const titleLine = {
 
 export function HeroSection() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
   const reduceMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
+  const shouldUseLiteMotion = reduceMotion ?? false;
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -53,12 +51,21 @@ export function HeroSection() {
   });
 
   const bgParallaxY = useTransform(scrollYProgress, (progress) =>
-    reduceMotion ?? false ? 0 : progress * -90,
+    shouldUseLiteMotion ? 0 : progress * (isMobileViewport ? -36 : -90),
   );
 
   const contentParallaxY = useTransform(scrollYProgress, (progress) =>
-    reduceMotion ?? false ? 0 : progress * 28,
+    shouldUseLiteMotion ? 0 : progress * (isMobileViewport ? 14 : 28),
   );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const syncViewportMode = () => setIsMobileViewport(mediaQuery.matches);
+
+    syncViewportMode();
+    mediaQuery.addEventListener("change", syncViewportMode);
+    return () => mediaQuery.removeEventListener("change", syncViewportMode);
+  }, []);
 
   useEffect(() => {
     if (heroSlides.length <= 1) return;
@@ -87,10 +94,10 @@ export function HeroSection() {
               aria-hidden="true"
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{ backgroundImage: `url('${heroSlides[activeSlide]}')` }}
-              initial={{ opacity: 0, scale: 1.08, x: 18 }}
-              animate={{ opacity: 1, scale: 1.02, x: 0 }}
-              exit={{ opacity: 0, scale: 1.01, x: -18 }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              initial={shouldUseLiteMotion ? { opacity: 0 } : { opacity: 0, scale: 1.08, x: 18 }}
+              animate={shouldUseLiteMotion ? { opacity: 1 } : { opacity: 1, scale: 1.02, x: 0 }}
+              exit={shouldUseLiteMotion ? { opacity: 0 } : { opacity: 0, scale: 1.01, x: -18 }}
+              transition={{ duration: shouldUseLiteMotion ? 0.65 : 1.2, ease: [0.22, 1, 0.36, 1] }}
             />
           </AnimatePresence>
         </motion.div>
@@ -130,21 +137,21 @@ export function HeroSection() {
                 : "hero-title-gold-flow"
             }`}
             variants={titleContainer}
-            custom={reduceMotion ?? false}
+            custom={shouldUseLiteMotion}
             initial="hidden"
             animate="visible"
           >
             <motion.span
               className="block"
               variants={titleLine}
-              custom={reduceMotion ?? false}
+              custom={shouldUseLiteMotion}
             >
               SKYANDSOUL
             </motion.span>
             <motion.span
               className="mt-1 block text-[0.88em] tracking-[0.2em]"
               variants={titleLine}
-              custom={reduceMotion ?? false}
+              custom={shouldUseLiteMotion}
             >
               EVENTZ &amp; DESIGN
             </motion.span>
