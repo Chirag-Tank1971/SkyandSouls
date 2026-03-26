@@ -69,13 +69,14 @@ export const servicePackages: ServicePackage[] = [
 
 export type SocialProofStat = {
   label: string;
-  value: string;
+  value: number;
+  suffix: string;
 };
 
 export const socialProofStats: SocialProofStat[] = [
-  { label: "Events delivered", value: "25+" },
-  { label: "Cities covered", value: "10+" },
-  { label: "Repeat-client rate", value: "72%" },
+  { label: "Events delivered", value: 25, suffix: "+" },
+  { label: "Cities covered", value: 10, suffix: "+" },
+  { label: "Repeat-client rate", value: 72, suffix: "%" },
 ];
 
 export type ClientLogo = {
@@ -96,12 +97,62 @@ export const clientLogos: ClientLogo[] = [
     name: "Kotak",
     imageSrc: "/clients/kotak.png",
   },
+  {
+    name: "Arisotech",
+    imageSrc: "/clients/arisotech.png",
+  },
+  {
+    name: "AsianPaints",
+    imageSrc: "/clients/asian_paints.png",
+  },
+  {
+    name: "Accenture",
+    imageSrc: "/clients/accenture.png",
+  },
 ];
 
 export const googleRating = {
   score: 4.9,
   reviews: 118,
 };
+
+export type GalleryImage = {
+  id: string;
+  src: string;
+  alt: string;
+};
+
+/** All images under `public/gallery` (sorted by filename). */
+export const galleryImages: GalleryImage[] = [
+  { id: "g-1", src: "/gallery/imgi_107_sindhu27-768x672.jpg", alt: "Event photography" },
+  { id: "g-2", src: "/gallery/imgi_112_sindhu13-768x672.jpg", alt: "Celebration moment" },
+  { id: "g-3", src: "/gallery/imgi_11_saadya-ashwini-bali5.jpg", alt: "Wedding celebration" },
+  { id: "g-4", src: "/gallery/imgi_127_sindhu18-768x672.jpg", alt: "Ceremony details" },
+  { id: "g-5", src: "/gallery/imgi_142_sindhu23-768x672.jpg", alt: "Venue and décor" },
+  { id: "g-6", src: "/gallery/imgi_152_sindhu20-768x672.jpg", alt: "Evening event" },
+  { id: "g-7", src: "/gallery/imgi_167_sindhu17-768x672.jpg", alt: "Reception styling" },
+  { id: "g-8", src: "/gallery/imgi_172_sindhu.jpg4_-768x672.jpg", alt: "Wedding décor" },
+  { id: "g-9", src: "/gallery/imgi_177_sindhu14-768x672.jpg", alt: "Guest celebration" },
+  { id: "g-10", src: "/gallery/imgi_187_sindhu24-768x672.jpg", alt: "Event atmosphere" },
+  { id: "g-11", src: "/gallery/imgi_29_sindhu13.jpg", alt: "Traditional celebration" },
+  { id: "g-12", src: "/gallery/imgi_3_sindhu16.jpg", alt: "Wedding ritual" },
+  { id: "g-13", src: "/gallery/imgi_30_sindhu11.jpg", alt: "Festive gathering" },
+  { id: "g-14", src: "/gallery/imgi_31_sindhu8.jpg", alt: "Event photography" },
+  { id: "g-15", src: "/gallery/imgi_33_sindhu9.jpg", alt: "Celebration" },
+  { id: "g-16", src: "/gallery/imgi_34_sindhu26.jpg", alt: "Wedding details" },
+  { id: "g-17", src: "/gallery/imgi_36_sindhu21.jpg", alt: "Venue styling" },
+  { id: "g-18", src: "/gallery/imgi_37_sindhu20.jpg", alt: "Event décor" },
+  { id: "g-19", src: "/gallery/imgi_38_sindhu22.jpg", alt: "Ceremony" },
+  { id: "g-20", src: "/gallery/imgi_39_sindhu25.jpg", alt: "Celebration moment" },
+  { id: "g-21", src: "/gallery/imgi_41_sindhu.jpg4_.jpg", alt: "Wedding photography" },
+  { id: "g-22", src: "/gallery/imgi_42_sindhu14.jpg", alt: "Event styling" },
+  { id: "g-23", src: "/gallery/imgi_43_sindhu7.jpg", alt: "Gathering" },
+  { id: "g-24", src: "/gallery/imgi_45_sindhu15.jpg", alt: "Wedding celebration" },
+  { id: "g-25", src: "/gallery/imgi_5_sindhu.jpg6_.jpg", alt: "Festive event" },
+  { id: "g-26", src: "/gallery/imgi_56_sindhu19-768x672.jpg", alt: "Palace event" },
+  { id: "g-27", src: "/gallery/imgi_61_sindhu16-768x672.jpg", alt: "Reception" },
+  { id: "g-28", src: "/gallery/imgi_66_sindhu13-1-768x672.jpg", alt: "Celebration details" },
+];
 
 export type PortfolioCategory = "All" | "Weddings" | "Corporate" | "Private" | "Destination";
 

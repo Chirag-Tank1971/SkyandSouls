@@ -4,6 +4,7 @@ import { SocialProofSection } from "@/components/sections/SocialProofSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { GallerySection } from "@/components/sections/GallerySection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -37,6 +38,7 @@ function Page() {
       <AboutSection />
       <ServicesSection />
       <ExperienceSection />
+      <GallerySection />
       <TestimonialsSection />
       <ContactSection />
       <SiteFooter />

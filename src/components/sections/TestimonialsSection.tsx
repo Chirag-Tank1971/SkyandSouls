@@ -14,7 +14,10 @@ import { testimonials } from "@/lib/site-data";
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="cv-auto relative z-10 py-24 sm:py-28">
+    <section
+      id="testimonials"
+      className="cv-auto relative z-10 pt-12 pb-14 sm:pt-14 sm:pb-18"
+    >
       <div className="mx-auto w-[min(1200px,calc(100%-2rem))]">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -37,7 +40,7 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20%" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12"
+          className="mt-10"
           data-gsap="reveal"
         >
           <Carousel
@@ -47,33 +50,33 @@ export function TestimonialsSection() {
             }}
             className="relative"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-3">
               {testimonials.map((testimonial) => (
                 <CarouselItem
                   key={testimonial.name}
-                  className="md:basis-1/2 lg:basis-1/3"
+                  className="pl-3 md:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="glass glow-ring h-full rounded-3xl p-6">
+                  <div className="h-full rounded-3xl border border-border/60 bg-linear-to-b from-background/95 via-background/88 to-background/75 p-6 shadow-[0_20px_55px_-42px_rgba(17,12,8,0.65)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-[#e8aa93]/45 hover:shadow-[0_26px_70px_-44px_rgba(142,89,64,0.48)]">
                     <div className="flex items-center justify-between">
-                      <div className="text-sm font-semibold text-foreground">
+                      <div className="text-[15px] font-semibold text-foreground">
                         {testimonial.name}
                       </div>
-                      <div className="grid size-10 place-items-center rounded-2xl border border-border/60 bg-background/60">
-                        <Quote className="size-4 text-foreground/70" />
+                      <div className="grid size-10 place-items-center rounded-xl border border-border/60 bg-background/75">
+                        <Quote className="size-[15px] text-[#e8aa93]" />
                       </div>
                     </div>
-                    <div className="mt-1 text-xs text-foreground/55">
+                    <div className="mt-1 text-xs tracking-wide text-foreground/55">
                       {testimonial.role}
                     </div>
-                    <p className="mt-5 text-sm leading-7 text-foreground/65">
+                    <p className="mt-5 text-[15px] leading-8 text-foreground/72">
                       “{testimonial.quote}”
                     </p>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-2 top-1/2 border-border/60 bg-background/80 text-foreground hover:bg-background" />
-            <CarouselNext className="right-2 top-1/2 border-border/60 bg-background/80 text-foreground hover:bg-background" />
+            <CarouselPrevious className="top-auto -bottom-14 left-1/2 -translate-x-[calc(100%+0.4rem)] border-border/60 bg-background/85 text-foreground shadow-sm hover:border-[#e8aa93]/45 hover:bg-background sm:-bottom-16" />
+            <CarouselNext className="top-auto -bottom-14 left-1/2 translate-x-[0.4rem] border-border/60 bg-background/85 text-foreground shadow-sm hover:border-[#e8aa93]/45 hover:bg-background sm:-bottom-16" />
           </Carousel>
         </motion.div>
       </div>

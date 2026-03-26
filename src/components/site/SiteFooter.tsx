@@ -38,6 +38,9 @@ export function SiteFooter() {
                 <a className="block hover:text-foreground" href="#experience">
                   Experience
                 </a>
+                <a className="block hover:text-foreground" href="#gallery">
+                  Gallery
+                </a>
               </div>
             </div>
             <div>
