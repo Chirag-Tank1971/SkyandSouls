@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
@@ -44,6 +45,30 @@ function randomOffset(id: string) {
 
 export function GallerySection() {
   const reduceMotion = useReducedMotion();
+  const [showAll, setShowAll] = useState(false);
+  const [columns, setColumns] = useState(2);
+
+  useEffect(() => {
+    const syncColumns = () => {
+      setColumns(window.innerWidth >= 768 ? 4 : 2);
+    };
+
+    syncColumns();
+    window.addEventListener("resize", syncColumns);
+    return () => window.removeEventListener("resize", syncColumns);
+  }, []);
+
+  const visibleCount = useMemo(() => {
+    if (showAll) return galleryImages.length;
+    return Math.min(galleryImages.length, columns * 9);
+  }, [columns, showAll]);
+
+  const visibleImages = useMemo(
+    () => galleryImages.slice(0, visibleCount),
+    [visibleCount],
+  );
+
+  const hasMore = visibleCount < galleryImages.length;
 
   return (
     <section
@@ -68,7 +93,7 @@ export function GallerySection() {
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-1 sm:gap-2 md:grid-cols-4">
-          {galleryImages.map((item) => (
+          {visibleImages.map((item) => (
             <motion.div
               key={item.id}
               initial={reduceMotion ? false : { opacity: 0, ...randomOffset(item.id), scale: 0.985 }}
@@ -91,27 +116,25 @@ export function GallerySection() {
               />
             </motion.div>
           ))}
-
-          <motion.a
-            href="#contact"
-            initial={reduceMotion ? false : { opacity: 0, y: 14, scale: 0.99 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{
-              duration: 0.5,
-              delay: reduceMotion ? 0 : 0.72,
-              ease: sectionEase,
-            }}
-            className="col-span-2 flex min-h-[120px] flex-col items-center justify-center gap-1 border border-dashed border-border/60 bg-background/50 px-4 py-7 text-center transition hover:border-[#e8aa93]/50 hover:bg-background/80 sm:min-h-[140px] md:col-span-4"
-          >
-            <span className="font-display text-xl font-semibold tracking-wide text-gradient sm:text-2xl">
-              + view more
-            </span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-foreground/50">
-              Plan your next event
-            </span>
-          </motion.a>
         </div>
+
+        {hasMore ? (
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10% 0px" }}
+            transition={{ duration: 0.45, ease: sectionEase }}
+            className="mt-6 flex justify-center"
+          >
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="rounded-full border border-border/60 bg-background/60 px-6 py-2.5 text-sm font-semibold tracking-wide text-foreground/80 transition hover:border-[#e8aa93]/50 hover:bg-background/80 hover:text-foreground"
+            >
+              View more
+            </button>
+          </motion.div>
+        ) : null}
       </div>
     </section>
   );
